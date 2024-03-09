@@ -1,10 +1,12 @@
 #!/usr/bin/python3
-"""
-pascal_triangle
-"""
+""" pascal_triangle """
 
 
 def pascal_triangle(n):
+    '''
+    Creates a list of lists of integers representing
+    the Pascal's triangle of a given integer.
+    '''
     triangle = []
     for i in range(n):
         row = []
