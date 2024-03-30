@@ -1,44 +1,49 @@
 #!/usr/bin/python3
-"""script that reads stdin line by line and computes metrics"""
-
-
+"""
+    script that reads stdin line by line and computes metrics
+"""
 import sys
 
 
-def print_stats():
-    print('File size: {:d}'.format(sum_file_size))
-    sorted_keys = sorted(status_code.keys())
-    for key in sorted_keys:
-        value = status_code[key]
-        if value != 0:
-            print('{}: {}'.format(key, value))
+def print_msg(codes, file_size):
+    print("File size: {}".format(file_size))
+    for key, val in sorted(codes.items()):
+        if val != 0:
+            print("{}: {}".format(key, val))
 
 
-i = 0
-sum_file_size = 0
-status_code = {'200': 0,
-               '301': 0,
-               '400': 0,
-               '401': 0,
-               '403': 0,
-               '404': 0,
-               '405': 0,
-               '500': 0}
+file_size = 0
+code = 0
+count_lines = 0
+codes = {
+    "200": 0,
+    "301": 0,
+    "400": 0,
+    "401": 0,
+    "403": 0,
+    "404": 0,
+    "405": 0,
+    "500": 0
+}
 
 try:
     for line in sys.stdin:
-        args = line.split(' ')
-        if len(args) > 2:
-            status_line = args[-2]
-            file_size = args[-1]
-            if status_line in status_code:
-                status_code[status_line] += 1
-            sum_file_size += int(file_size)
-            i += 1
-            if i == 10:
-                print_stats()
-                i = 0
-except Exception:
-    pass
+        parsed_line = line.split()
+        parsed_line = parsed_line[::-1]
+
+        if len(parsed_line) > 2:
+            count_lines += 1
+
+            if count_lines <= 10:
+                file_size += int(parsed_line[0])
+                code = parsed_line[1]
+
+                if (code in codes.keys()):
+                    codes[code] += 1
+
+            if (count_lines == 10):
+                print_msg(codes, file_size)
+                count_lines = 0
+
 finally:
-    print_stats()
+    print_msg(codes, file_size)
