@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """ nQueens problem.
 """
 from sys import argv, exit
