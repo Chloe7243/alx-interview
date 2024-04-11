@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+""" nQueens problem.
+"""
 import sys
 
 
