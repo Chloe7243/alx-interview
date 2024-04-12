@@ -61,4 +61,5 @@ def main():
         print("N must be a number")
         exit(1)
 
-main()
+if __name__ == "__main__":
+    main()
