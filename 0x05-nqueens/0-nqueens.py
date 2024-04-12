@@ -46,7 +46,7 @@ def nQueens(board, col):
             board[i][col] = 0
 
 
-if __name__ == "__main__":
+def main():
     if len(argv) != 2:
         print("Usage: nqueens N")
         exit(1)
@@ -60,3 +60,5 @@ if __name__ == "__main__":
     except ValueError:
         print("N must be a number")
         exit(1)
+
+main()
