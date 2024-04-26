@@ -1,8 +1,9 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """ Given an n x n 2D matrix, rotate it 90 degrees clockwise. """
 
 
 def rotate_2d_matrix(matrix):
+    """ Given an n x n 2D matrix, rotate it 90 degrees clockwise. """
     matrix_len = len(matrix)
     rotated_matrix = []
     for i, row in enumerate(matrix):
