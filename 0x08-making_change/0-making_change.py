@@ -16,7 +16,7 @@ def makeChange(coins, total):
             if coin > total:
                 continue
             coins_needed += math.trunc(total / coin)
-            total = total % coin
+            total %= coin
         else:
             break
     return coins_needed if total == 0 else -1
