@@ -19,4 +19,4 @@ def makeChange(coins, total):
             total %= coin
         else:
             break
-    return coins_needed if total == 0 else -1
+    return coins_needed if total <= 0 else -1
