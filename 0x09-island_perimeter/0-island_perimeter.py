@@ -21,7 +21,3 @@ def island_perimeter(grid):
                 if i + 1 == len(grid) or grid[i + 1][j] == 0:
                     perimeter += 1
     return perimeter
-
-
-grid = [[1, 0]]
-print(island_perimeter(grid))
