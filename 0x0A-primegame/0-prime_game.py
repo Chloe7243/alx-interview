@@ -2,27 +2,18 @@
 """ 0x0A. Prime Game """
 
 
-def isPrimeNumber(n):
-    """Checks If Number Is Prime"""
-    isPrime = True
-    i = 2
-    while i <= n / 2:
-        if n % i == 0:
-            isPrime = False
-            break
-        i += 1
-    return isPrime
-
-
 def getNoPrimeNumbers(n):
     """Gets Number of prime numbers between 2 and n"""
     i = 2
-    noPrimeNumbers = 0
-    while i <= n:
-        if isPrimeNumber(i):
-            noPrimeNumbers += 1
+    primeNumbers = [True] * (n + 1)
+    while i * i <= n:
+        if primeNumbers[i] == True:
+            j = i**2
+            while j <= n:
+                primeNumbers[j] = False
+                j += i
         i += 1
-    return noPrimeNumbers
+    return len(list(filter(lambda x: x == True, primeNumbers))) - 2
 
 
 def isWinner(x, nums):
