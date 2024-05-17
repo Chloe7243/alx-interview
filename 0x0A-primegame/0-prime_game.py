@@ -7,13 +7,13 @@ def getNoPrimeNumbers(n):
     i = 2
     primeNumbers = [True] * (n + 1)
     while i * i <= n:
-        if primeNumbers[i] == True:
+        if primeNumbers[i] is True:
             j = i**2
             while j <= n:
                 primeNumbers[j] = False
                 j += i
         i += 1
-    return len(list(filter(lambda x: x == True, primeNumbers))) - 2
+    return len(list(filter(lambda x: x is True, primeNumbers))) - 2
 
 
 def isWinner(x, nums):
